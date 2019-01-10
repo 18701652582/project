@@ -1,0 +1,7 @@
+2019-01-10 14:32:37,498 - BrowserEngine - INFO - You had select Chrome browser.
+2019-01-10 14:32:37,498 - BrowserEngine - INFO - The test server url is: https://www.baidu.com
+2019-01-10 14:32:42,754 - BrowserEngine - INFO - Starting Chrome browser.
+2019-01-10 14:32:44,294 - BrowserEngine - INFO - Open url: https://www.baidu.com
+2019-01-10 14:32:45,552 - BrowserEngine - INFO - Maximize the current window.
+2019-01-10 14:32:45,556 - BrowserEngine - INFO - Set implicitly wait 10 seconds.
+2019-01-10 14:32:45,585 - BasePage - INFO - Current page title is 百度一下，你就知道
