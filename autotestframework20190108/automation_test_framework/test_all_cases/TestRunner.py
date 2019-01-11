@@ -30,9 +30,22 @@ if __name__ == "__main__":
         stream=fp,
         title=u'功能测试报告',
         description=u'用例执行情况：')
+
+    '''
+    	#定时运行脚本
+    	k = 1
+    	while k < 2:
+    		timing = time.strftime('%H_%M', time.localtime(time.time()))
+    		if timing == '14_18':  # 14_18指14:18,这个可以根据需要设定时间
+    			print('start to run scripts!')
+    			runner.run(discover)  # 运行所有的case
+    			print('Finish running scripts!')
+    			break
+    		else:
+    			time.sleep(3)
+    			print(timing)
+    	'''
     runner.run(createsuite())
-
-
     #关闭文件流，不关的话生成的报告是空的
     fp.close()
 
