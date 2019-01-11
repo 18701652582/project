@@ -2,7 +2,7 @@
 import unittest
 import time
 from autotestframework20190108.automation_test_framework.framework.HTMLTestRunner import HTMLTestRunner
-
+from autotestframework20190108.automation_test_framework.framework.sendmail import *
 
 
 
@@ -25,8 +25,11 @@ if __name__ == "__main__":
     now = time.strftime("%Y-%m-%d-%H_%M_%S")
     filename = report_path + '/result_' + now + '.html'
     fp = open(filename, 'wb')
-    runner = HTMLTestRunner(stream=fp, title=u"测试报告", description=u"用例执行情况：")
+    runner = HTMLTestRunner(stream=fp, title=u"XXXXX测试报告", description=u"用例执行情况：")
     runner.run(discover)
     fp.close()
+
+    new_report = new_report(report_path)
+    send_mail(new_report)
 
 

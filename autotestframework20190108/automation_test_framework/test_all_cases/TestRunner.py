@@ -5,6 +5,7 @@
 import HTMLTestRunner
 import unittest
 import time
+from autotestframework20190108.automation_test_framework.framework.sendmail import *
 
 
 # 用例路径
@@ -34,6 +35,9 @@ if __name__ == "__main__":
 
     #关闭文件流，不关的话生成的报告是空的
     fp.close()
+
+    new_report = new_report(report_path)
+    send_mail(new_report)
 
 
 
