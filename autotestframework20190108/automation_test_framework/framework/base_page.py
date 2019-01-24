@@ -42,7 +42,8 @@ class BasePage(object):
             logger.info("Closing and quit the browser.")
         except NameError as e:
             logger.error("Failed to quit the browser with %s" % e)
-
+    '''
+    #截图方法一
     # 保存图片
     def get_windows_img(self):
         """
@@ -57,6 +58,37 @@ class BasePage(object):
         except NameError as e:
             logger.error("Failed to take screenshot! %s" % e)
             self.get_windows_img()
+    '''
+    #截图方法二
+    def get_windows_img(self):
+        # 生成年月日时分秒时间
+        picture_time = time.strftime("%Y-%m-%d-%H_%M_%S", time.localtime(time.time()))
+        directory_time = time.strftime("%Y-%m-%d", time.localtime(time.time()))
+        #print(picture_time)
+        #print(directory_time)
+        # 打印文件目录
+        # print(os.getcwd())
+        # 获取到当前文件的目录，并检查是否有 directory_time 文件夹，如果不存在则自动新建 directory_time 文件
+        File_Path = r"D:\PyCharm2018\project\autotestframework20190108\automation_test_framework\screenshots" + '\\' + directory_time + '\\'
+        print(File_Path)
+        try:
+            if not os.path.exists(File_Path):
+                os.makedirs(File_Path)
+                print("目录新建成功：%s" % File_Path)
+                logger.info("目录新建成功：%s" % File_Path)
+            else:
+                print("目录已存在！！！")
+        except BaseException as msg:
+            print("新建目录失败：%s" % msg)
+            logger.error("新建目录失败：%s" % msg)
+        try:
+            image_path = self.driver.save_screenshot(File_Path + "\\" + picture_time + '.png')
+            print("%s ：截图成功！！！" % image_path)
+            logger.info("%s ：截图成功！！！" % image_path)
+        except BaseException as pic_msg:
+            print("截图失败：%s" % pic_msg)
+            logger.error("截图失败：%s" % pic_msg)
+        time.sleep(2)
 
     # 定位元素方法
     def find_element(self, selector):
