@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "28df3e07-53ae-463e-9b70-c87b78328acc",
+		"name": "postman-github",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "example.com",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0641fa39-44b3-403d-a513-0bc283f5a8b2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "example.com",
+					"host": [
+						"example",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
